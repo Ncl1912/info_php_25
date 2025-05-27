@@ -109,11 +109,31 @@ if ($mediaAluno >= 7){
     echo "Média aluno = $mediaAluno. Aprovado.";
 } else if ($mediaAluno < 7){
     echo "Média aluno = $mediaAluno. Reprovado.";
-}
+} 
 
 // Média Ponderada - 
-$mediaPonderada = ($nota_1 * 1 + $nota_2 * 2 + $nota_3 * 3 + $nota_4 * 4) / (1 + 2 + 3 + 4);
+
+$peso_1 = 1;
+$peso_1 = 2;
+$peso_1 = 3;
+$peso_1 = 4;
+$somaPesos = ($nota_1 * 1 + $nota_2 * 2 + $nota_3 * 3 + $nota_4 * 4);
+$mediaPonderada = $somaPesos / (1 + 2 + 3 + 4);
 
 if ($mediaPonderada >= 7){
     echo "Média aluno = $mediaPonderada. Aprovado.";
-} 
+} else if ($mediaPonderada < 7){
+    echo "Média aluno = $mediaPonderada. Reprovado.";
+}
+
+// Média Harmonica
+
+$numeroElementos = 4;
+$somaNotas = (1/$nota_1 + 1/$nota_2 + 1/$nota_3 + 1/$nota_4);
+$mediaHarmonica = $numeroElementos / $somaNotas;
+
+if ($mediaHarmonica >= 7){
+    echo "Média aluno = $mediaHarmonica. Aprovado.";
+} else if ($mediaHarmonica < 7){
+    echo "Média aluno = $mediaHarmonica. Reprovado.";
+}
