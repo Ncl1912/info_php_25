@@ -106,9 +106,9 @@ $mediaAluno = ($nota_1 + $nota_2 + $nota_3 + $nota_4)/4;
 echo "<br/><br/>";
 
 if ($mediaAluno >= 7){
-    echo "Média aluno = $mediaAluno. Aprovado.";
+    echo "Média aluno =  $mediaAluno. Aprovado.";
 } else if ($mediaAluno < 7){
-    echo "Média aluno = $mediaAluno. Reprovado.";
+    echo "Média aluno =  $mediaAluno. Reprovado.";
 } 
 
 // Média Ponderada - 
@@ -120,20 +120,140 @@ $peso_1 = 4;
 $somaPesos = ($nota_1 * 1 + $nota_2 * 2 + $nota_3 * 3 + $nota_4 * 4);
 $mediaPonderada = $somaPesos / (1 + 2 + 3 + 4);
 
+
+echo "<br/><br/>";
+
 if ($mediaPonderada >= 7){
-    echo "Média aluno = $mediaPonderada. Aprovado.";
+    echo "Média aluno =  $mediaPonderada. Aprovado.";
 } else if ($mediaPonderada < 7){
-    echo "Média aluno = $mediaPonderada. Reprovado.";
+    echo "Média aluno =  $mediaPonderada. Reprovado.";
 }
 
-// Média Harmonica
+// Média Harmonica - 
 
 $numeroElementos = 4;
 $somaNotas = (1/$nota_1 + 1/$nota_2 + 1/$nota_3 + 1/$nota_4);
 $mediaHarmonica = $numeroElementos / $somaNotas;
 
+echo "<br/><br/>";
+
 if ($mediaHarmonica >= 7){
-    echo "Média aluno = $mediaHarmonica. Aprovado.";
+    echo "Média aluno =  $mediaHarmonica. Aprovado.";
 } else if ($mediaHarmonica < 7){
-    echo "Média aluno = $mediaHarmonica. Reprovado.";
+    echo "Média aluno =  $mediaHarmonica. Reprovado.";
 }
+
+// Criar uma calculadora - 
+
+$valor1 = 31;
+$valor2 = 2;
+$operador = "*";
+$resultado = 0;
+
+echo "<br/><br/>";
+
+if ($operador == "+"){
+    $resultado = $valor1 + $valor2 ;
+    echo "$valor1 + $valor2 = $resultado";
+} else if ($operador == "-") {
+    $resultado = $valor1 - $valor2 ;
+    echo "$valor1 - $valor2 = $resultado";
+} else if ($operador == "/")  {
+    $resultado = $valor1 / $valor2 ;
+    echo "$valor1 / $valor2 = $resultado";
+} else if ($operador == "*") {
+    $resultado = $valor1 * $valor2 ;
+    echo "$valor1 * $valor2 = $resultado";
+} else {
+    echo "Operador inválido.";
+}
+
+switch ($operador) {
+    case "+";
+        $resultado = $valor1 + $valor2;
+        break;
+    case "-";
+        $resultado = $valor1 - $valor2;
+        break;
+    case "*";
+        $resultado = $valor1 * $valor2;
+        break;
+    case "/";
+        $resultado = $valor1 / $valor2;
+        break;
+    default;
+        echo "Operador Inválido.";
+        $resultado = 0;
+        break;
+}
+
+echo "<br/> O resultado da operação ($valor1 $operador $valor2) é: $resultado";
+echo "<br/><br/>";
+
+// Ler 3 valores (A, B e C) e informar se eles são iguais.
+$valorA = 10;
+$valorB = 10;
+$valorC = 10;
+
+if ($valorA == $valorB && $valorB == $valorC) {
+    echo "Os valores são iguais.";
+} else {
+    echo "Os valores são diferentes.";
+}
+
+/* Ler 3 valores (A, B e C) e informar ao usuário qual tipo de triângulo ele forma,
+ou se não forma nenhum triângulo.
+Triângulos a considerar: equilátero, isósceles e escaleno.
+*/
+$valorA = 10;
+$valorB = 10;
+$valorC = 10;
+
+echo "<br/><br/>";
+
+if ($valorA == $valorB && $valorB == $valorC) {
+    echo "O triângulo é Equilátero.";
+} else if (
+    ($valorA != $valorB && $valorB == $valorC)||
+    ($valorA == $valorB && $valorB != $valorC)|| 
+    ($valorA == $valorB && $valorA != $valorC)
+    ) {
+    echo "O triângulo é Isósceles.";
+} else if (
+ ($valorA != $valorB && $valorB != $valorC) && 
+ ($valorA + $valorB > $valorC && $valorA + $valorC > $valorB && $valorB + $valorC > $valorA ) 
+){
+    echo "O triângulo é Escaleno.";
+}
+  else {
+    echo "Não forma nenhum triângulo.";
+}
+
+echo "<br/><br/>";
+
+// FOR - (Laço de Repetição) - 
+
+for ($i = 0; $i < 10; $i++) {
+    echo $i . "<br/>";
+}
+
+$i = 30;
+while($i < 10){
+    echo $i . "<br/>";
+    $i++;
+}
+
+$i = 50;
+do {
+   echo $i . "<br/>"; // 50
+   $i++; 
+} while($i < 10);
+
+// Tabuada do 5 - 
+$multiplicador = 5;
+
+    for ($i = 0; $i < 10; $i++) {
+        $resultado = $multiplicador * $i
+
+        echo "$multiplicador * $i = $resultado" . "<br/>";
+    }
