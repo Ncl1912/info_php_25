@@ -277,44 +277,67 @@
 
 // Encontrar os 20 primeiros números pares e exibi-los:
 
-$cont = 0;
-for ($i = 0; $cont <= 20; $i++) {
-    $resto = $i % 2;
-        if ($i % 2 == 0) {
-            echo "<br> $i = PAR" ;
-            $cont++;
-        }    
-}
-echo "<br/><br/>";
+// $cont = 0;
+// for ($i = 0; $cont <= 20; $i++) {
+//     $resto = $i % 2;
+//         if ($i % 2 == 0) {
+//             echo "<br> $i = PAR" ;
+//             $cont++;
+//         }    
+// }
+// echo "<br/><br/>";
 
-$cont = 0;
-$i = 0;
-while ($cont <= 20) {
-    $resto = $i % 2;
-    if ($i % 2 == 0) {
-        echo "$i <br/>";
-        $cont++;
-    } $i++; 
- } echo "<br/><br/>";
+// $cont = 0;
+// $i = 0;
+// while ($cont <= 20) {
+//     $resto = $i % 2;
+//     if ($i % 2 == 0) {
+//         echo "$i <br/>";
+//         $cont++;
+//     } $i++; 
+//  } echo "<br/><br/>";
 
- // Criar uma contagem regressiva de 10 - 0:
+//  // Criar uma contagem regressiva de 10 - 0:
 
-for ($i = 10; $i >= 0; $i--) {
-    echo "$i <br/>";
-}
+// for ($i = 10; $i >= 0; $i--) {
+//     echo "$i <br/>";
+// }
 
  // Encontrar os 5 primeiros números primos:
 
  $contPrimos = 0;
-
- for ($numeroAvaliado = 3; $contPrimos < 5; $numeroAvaliado++) {
-    $penultimoNumero = $numeroAvaliado - 1; //2
+ $primos = [];
+ for ($numeroAvaliado = 2; $contPrimos < 5; $numeroAvaliado++) {
+    $penultimoNumero = $numeroAvaliado - 1; 
+    $ehPrimo = true;
     for ($divisor = 2; $divisor <= $penultimoNumero; $divisor++) {
         $resto = $numeroAvaliado % $divisor;
         $divisaoExata = $resto == 0;
 
-        if ($divisaoExata && $divisor < $penultimoNumero) {
+        if ($divisaoExata && $divisor < $penultimoNumero) { 
+            $ehPrimo = false;
             break; 
         } 
     }
+        if ($ehPrimo) {
+            $contPrimos++;
+            $primos[] = $numeroAvaliado;
+          //  echo "$numeroAvaliado <br/>";
+}
+        }
+
+
+//  $primos = []; // array || vetor == vazio
+
+//  $primos = [2, 3, 5, 7, 11]; //5 primeiros primos
+//  //         0, 1, 2, 3, 4
+
+ for ($i = 0; $i < count($primos); $i++) {
+    $primo = $primos[$i];
+    echo "Primo: $primo" . "<br/>";
+ }
+
+ for ($i = 0; $i < 5; $i++) {
+    $primo = $primos[$i];
+    echo "Primo: $primo" . "<br/>";
  }
