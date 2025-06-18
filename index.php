@@ -305,39 +305,79 @@
 
  // Encontrar os 5 primeiros números primos:
 
- $contPrimos = 0;
- $primos = [];
- for ($numeroAvaliado = 2; $contPrimos < 5; $numeroAvaliado++) {
-    $penultimoNumero = $numeroAvaliado - 1; 
-    $ehPrimo = true;
-    for ($divisor = 2; $divisor <= $penultimoNumero; $divisor++) {
-        $resto = $numeroAvaliado % $divisor;
-        $divisaoExata = $resto == 0;
+//  $contPrimos = 0;
+//  $primos = []; // inicializando array
+//  for ($numeroAvaliado = 2; $contPrimos < 5; $numeroAvaliado++) {
+//     $penultimoNumero = $numeroAvaliado - 1; 
+//     $ehPrimo = true;
+//     for ($divisor = 2; $divisor <= $penultimoNumero; $divisor++) {
+//         $resto = $numeroAvaliado % $divisor;
+//         $divisaoExata = $resto == 0;
 
-        if ($divisaoExata && $divisor < $penultimoNumero) { 
-            $ehPrimo = false;
-            break; 
-        } 
-    }
-        if ($ehPrimo) {
-            $contPrimos++;
-            $primos[] = $numeroAvaliado;
-          //  echo "$numeroAvaliado <br/>";
-}
-        }
+//         if ($divisaoExata && $divisor < $penultimoNumero) { 
+//             $ehPrimo = false;
+//             break; 
+//         } 
+//     }
+//         if ($ehPrimo) {
+//             $contPrimos++;
+//             $primos[] = $numeroAvaliado; // salvando "$numeroAvaliado" (primo) no array;
+//            // $primos = []; // VAZIO - atribuindo vazio no array
+//           //  echo "$numeroAvaliado <br/>";
+// }
+//         }
 
 
-//  $primos = []; // array || vetor == vazio
+//  $primos = []; // array || vetor == vazio - Dado Estruturado
 
 //  $primos = [2, 3, 5, 7, 11]; //5 primeiros primos
-//  //         0, 1, 2, 3, 4
+//  //         0, 1, 2, 3, 4     - indice 
 
- for ($i = 0; $i < count($primos); $i++) {
-    $primo = $primos[$i];
-    echo "Primo: $primo" . "<br/>";
- }
+//  for ($i = 0; $i < count($primos); $i++) {
+//     $primo = $primos[$i];
+//     echo "Primo: $primo" . "<br/>";
+//  }
 
- for ($i = 0; $i < 5; $i++) {
-    $primo = $primos[$i];
-    echo "Primo: $primo" . "<br/>";
+//  for ($i = 0; $i < 5; $i++) {
+//     $primo = $primos[$i];
+//     echo "Primo: $primo" . "<br/>";
+//  }
+
+// Veja se é Palindromo:
+
+ $palavra = "arara";
+ $palavraInvertida = []; // // A R A R A
+        //                     4 3 2 1 0
+        //                     0 1 2 3 4
+ 
+ $tamanho = strlen($palavra) - 1; // 5 - 1 == 4
+ $j = 0;
+
+ for ($i = $tamanho; $i >= 0; $i--) {
+    $letra_1 = $palavra[$i];
+    $letra_2 = $palavra[$j];
+    $palavrasIguais = $letra_1 == $letra_2;
+    $ehPalindromo = true;
+    if (!$ehPalindromo) {
+        $ehPalindromo = false;
+        break;
+    } $j++;
+    } if ($ehPalindromo) {
+        echo "A $palavra é PALÍNDROMO";
+    } else {
+        echo "A $palavra não é PALÍNDROMO";
+    }
+
+    // Procurar uma palavra no meio da frase e informar se encontrou a mesma:
+
+$palavraProcurada = "curso";                             // c u r s o
+                                                //          0 1 2 3 4
+$frase = "Escola infoserv curso de PHP.";                // E s c o l a   i n f o  s  e  r  v     c  u  r  s  o     d  e     P  H  P 
+                                                //          0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27
+$tamanho = strlen($frase) - 1;
+$palavraAchada = [];
+$j = 0;
+
+ for ($i = 0; $i <= $tamanho; $i++) {
+    $palavrasIguais = 
  }
