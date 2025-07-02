@@ -363,21 +363,156 @@
         break;
     } $j++;
     } if ($ehPalindromo) {
-        echo "A $palavra é PALÍNDROMO";
+        echo "A $palavra é PALÍNDROMO" . "<br/>";
     } else {
-        echo "A $palavra não é PALÍNDROMO";
+        echo "A $palavra não é PALÍNDROMO" . "<br/>";
     }
 
     // Procurar uma palavra no meio da frase e informar se encontrou a mesma:
 
-$palavraProcurada = "curso";                             // c u r s o
-                                                //          0 1 2 3 4
-$frase = "Escola infoserv curso de PHP.";                // E s c o l a   i n f o  s  e  r  v     c  u  r  s  o     d  e     P  H  P 
-                                                //          0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27
-$tamanho = strlen($frase) - 1;
-$palavraAchada = [];
-$j = 0;
+$palavraProcurada = "curso";
+$frase = "Escola infoserv curso de PHP."; // curso
 
- for ($i = 0; $i <= $tamanho; $i++) {
-    $palavrasIguais = 
- }
+$tamanho = strlen($frase) - 1; // 28
+$tamanhoPalavra = strlen($palavraProcurada) - 1; // 28
+
+$tamanhoReal = $tamanho - $tamanhoPalavra;
+
+$palavraEncontrada = false;
+
+// percorre a frase toda, letra a letra
+for ($i = 0; $i <= $tamanhoReal; $i++) {
+
+    $letrasIguais = true;
+    
+    // percorre toda a palavra, letra a letra
+    for ($j = 0; $j <= $tamanhoPalavra; $j++) {
+        
+        $indiceAtualDaFrase = $i + $j;
+        // $k = $i + $j;
+
+        $letraAtualDaFrase = $frase[$indiceAtualDaFrase];
+        $letraAtualDaPalavra = $palavraProcurada[$j];
+
+        if ($letraAtualDaFrase != $letraAtualDaPalavra) {
+             $letrasIguais = false;
+            break;
+        } 
+
+    }
+
+    if ($letrasIguais) {
+        $palavraEncontrada = true;
+        break;
+    } 
+}
+
+if ($palavraEncontrada) {
+    echo "Encontrou a palavra procurada.";
+} else {
+    echo "Não Encontrou.";
+} echo "<br/>";
+
+// // Algumas funções em PHP: - php.net
+// count(); // obtem o tamanho de um array/objeto
+// strlen(); // obtem o tamanho de uma string
+// substr(); // obtem uma parte de uma string 
+
+//FUNÇÃO:
+$numero = 5;
+tabuada($numero); echo "<br/>";
+tabuada(3);
+
+function tabuada($multiplicador) {
+     for ($i = 0; $i <= 10; $i++) {
+         $resultado = $multiplicador * $i;
+         echo "$multiplicador * $i = $resultado" . "<br/>";
+}
+}
+
+// CALCULADORA:
+
+$valor1 = 10;
+$valor2 = 5;
+$operador = "+";
+
+//echo calculadora($valor1, $operador, $valor2);
+
+function calculadora($valor1, $operador, $valor2) {
+    switch ($operador) {
+    case "+";
+        $resultado = somar($valor1 + $valor2);
+        break;
+    case "-";
+        $resultado = subtrair($valor1 - $valor2);
+        break;
+    case "*";
+        $resultado = multiplicar($valor1 * $valor2);
+        break;
+    case "/";
+        $resultado = dividir($valor1 / $valor2);
+        break;
+    default;
+        echo "Operador Inválido.";
+        $resultado = 0;
+        break;
+}
+}
+
+$resultado = 0;
+function somar($valor1, $valor2) {
+     $resultado = $valor1 + $valor2;
+     return $resultado;
+}
+function subtrair($valor1, $valor2) {
+     $resultado = $valor1 - $valor2;
+     return $resultado;
+}
+function multiplicar($valor1, $valor2) {
+     $resultado = $valor1 * $valor2;
+     return $resultado;
+}
+function dividir($valor1, $valor2) {
+     $resultado = $valor1 / $valor2;
+     return $resultado;
+}
+
+/** Calendário: usuario vai infomar uma data, validar essa data, caso for uma data inválida,
+ * retornar a próxima data correta.
+ * Ex.; 29/02/2025 => 01/03/2025
+ * Ex.; 31/04/2025 => 01/05/2025
+ * 
+ * Função PHP: explode;
+ */  // date ("d/m/Y")
+
+ $data = "29/02/2025";
+ $dataArray = explode("/", $data);
+ 
+ $dia = $dataArray[0]; 
+ $mes = $dataArray[1];
+ $ano = $dataArray[2];
+ 
+if ($dia < 1 || $dia > 31) {
+    $dia = 1; 
+ } 
+if ($mes < 1 || $mes > 12) {
+    $mes = 1;
+    $dia = 1;
+}
+if ($ano < 1 ) {
+    $ano = 1900;
+    $mes = 1;
+    $dia = 1;
+}
+
+
+
+ /**
+  * Ordenar os arrays abaixo em ordem decrescente (maior para menor):
+  * $alfa = ["A", "B", "C", "D", "E"];
+  * $numeros = [10, 20, 30, 40, 50];
+  * Saida esperada: E, D, C, B, A
+  * 50, 40, 30, 20, 10
+
+  * Utilizar somente laço FOR. Não utilizar funcoes prontas do PHP para ordenacao.
+  */
