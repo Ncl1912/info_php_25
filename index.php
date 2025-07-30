@@ -477,6 +477,8 @@ function dividir($valor1, $valor2) {
      return $resultado;
 }
 
+echo calculadora($valor1, $operador, $valor2);
+
 /** Calendário: usuario vai infomar uma data, validar essa data, caso for uma data inválida,
  * retornar a próxima data correta.
  * Ex.; 29/02/2025 => 01/03/2025
@@ -485,175 +487,175 @@ function dividir($valor1, $valor2) {
  * Função PHP: explode;
  */  // date ("d/m/Y")
 
-$data = "29/02/2025";
-$dataArray = explode("/", $data);
+// $data = "29/02/2025";
+// $dataArray = explode("/", $data);
 
-$dia = $dataArray[0];
-$mes = $dataArray[1];
-$ano = $dataArray[2];
+// $dia = $dataArray[0];
+// $mes = $dataArray[1];
+// $ano = $dataArray[2];
 
- $diasPorMes = 
- [  1 => 31, 2 => 28, 3 =>31, 4 => 30, 5 => 31, 6 => 30,
-    7 => 31, 8 => 31, 9 => 30, 10 => 31, 11 => 30, 12 => 31 ];
+//  $diasPorMes = 
+//  [  1 => 31, 2 => 28, 3 =>31, 4 => 30, 5 => 31, 6 => 30,
+//     7 => 31, 8 => 31, 9 => 30, 10 => 31, 11 => 30, 12 => 31 ];
 
-    if (($ano % 4 == 0 && $ano % 100 != 0) || ($ano % 400 == 0) ) {
-    $diasPorMes[2] = 29;
-}
+//     if (($ano % 4 == 0 && $ano % 100 != 0) || ($ano % 400 == 0) ) {
+//     $diasPorMes[2] = 29;
+// }
 
-    if ($mes < 1 || $mes > 12 || $dia < 1 || $dia > $diasPorMes[$mes]){
+//     if ($mes < 1 || $mes > 12 || $dia < 1 || $dia > $diasPorMes[$mes]){
 
-        $dia++;
+//         $dia++;
 
-    if ($dia > $diasPorMes[$mes]) {
+//     if ($dia > $diasPorMes[$mes]) {
 
-        $dia = 1;
-        $mes++;
+//         $dia = 1;
+//         $mes++;
 
-    if ($mes > 12) {
+//     if ($mes > 12) {
 
-        $mes = 1;
-        $ano++;
+//         $mes = 1;
+//         $ano++;
 
-            }
-        }
+//             }
+//         }
 
-    }
-    echo "Data válida: $dia/$mes/$ano";
+//     }
+//     echo "Data válida: $dia/$mes/$ano";
 
-        echo "<br>";
+//         echo "<br>";
 
-$alfa = ["A", "B", "C", "D", "E"];
-$numeros = [10, 20, 30, 40, 50];
+// $alfa = ["A", "B", "C", "D", "E"];
+// $numeros = [10, 20, 30, 40, 50];
 
-for ($i = 0; $i < count($alfa); $i++) {
-    for ($j = $i + 1; $j < count($alfa); $j++) {
+// for ($i = 0; $i < count($alfa); $i++) {
+//     for ($j = $i + 1; $j < count($alfa); $j++) {
         
-    if ($alfa[$i] < $alfa[$j]) {
-            $temp = $alfa[$i];
-            $alfa[$i] = $alfa[$j];
-            $alfa[$j] = $temp;
-        }
-    }
-}
+//     if ($alfa[$i] < $alfa[$j]) {
+//             $temp = $alfa[$i];
+//             $alfa[$i] = $alfa[$j];
+//             $alfa[$j] = $temp;
+//         }
+//     }
+// }
 
-for ($i = 0; $i < count($numeros); $i++) {
-    for ($j = $i + 1; $j < count($numeros); $j++) {
+// for ($i = 0; $i < count($numeros); $i++) {
+//     for ($j = $i + 1; $j < count($numeros); $j++) {
 
-    if ($numeros[$i] < $numeros[$j]) {
-            $temp = $numeros[$i];
-            $numeros[$i] = $numeros[$j];
-            $numeros[$j] = $temp;
-        }
-    }
-}
+//     if ($numeros[$i] < $numeros[$j]) {
+//             $temp = $numeros[$i];
+//             $numeros[$i] = $numeros[$j];
+//             $numeros[$j] = $temp;
+//         }
+//     }
+// }
 
-echo "Alfabeto: ";
-for ($i = 0; $i < count($alfa); $i++) {
-    echo $alfa[$i];
-    if ($i < count($alfa) - 1) echo ", ";
-}
-    echo "<br>";
+// echo "Alfabeto: ";
+// for ($i = 0; $i < count($alfa); $i++) {
+//     echo $alfa[$i];
+//     if ($i < count($alfa) - 1) echo ", ";
+// }
+//     echo "<br>";
 
-echo "Números: ";
-for ($i = 0; $i < count($numeros); $i++) {
-    echo $numeros[$i];
-    if ($i < count($numeros) - 1) echo ", ";
-}
+// echo "Números: ";
+// for ($i = 0; $i < count($numeros); $i++) {
+//     echo $numeros[$i];
+//     if ($i < count($numeros) - 1) echo ", ";
+// }
 
- /**
-  * Ordenar os arrays abaixo em ordem decrescente (maior para menor):
-  * $alfa = ["A", "B", "C", "D", "E"];
-  * $numeros = [10, 20, 30, 40, 50];
-  * Saida esperada: E, D, C, B, A
-  * 50, 40, 30, 20, 10
+//  /**
+//   * Ordenar os arrays abaixo em ordem decrescente (maior para menor):
+//   * $alfa = ["A", "B", "C", "D", "E"];
+//   * $numeros = [10, 20, 30, 40, 50];
+//   * Saida esperada: E, D, C, B, A
+//   * 50, 40, 30, 20, 10
 
-  * Utilizar somente laço FOR. Não utilizar funcoes prontas do PHP para ordenacao.
-  */
+//   * Utilizar somente laço FOR. Não utilizar funcoes prontas do PHP para ordenacao.
+//   */
 
-$dados= []; // 0
-count($dados); // 0
-ordenarArray($dados); // asc
-ordenarArray($dados, "asc");
-ordenarArray($dados, "desc");
-ordenarArray($dados, "xyz"); // troca para asc
+// $dados= []; // 0
+// count($dados); // 0
+// ordenarArray($dados); // asc
+// ordenarArray($dados, "asc");
+// ordenarArray($dados, "desc");
+// ordenarArray($dados, "xyz"); // troca para asc
 
-function ordenarArray(array $dados, string $ordem = "asc") {
+// function ordenarArray(array $dados, string $ordem = "asc") {
 
-    if ($ordem != "asc" && $ordem != "desc") {
-        $ordem = "asc";
-    }
+//     if ($ordem != "asc" && $ordem != "desc") {
+//         $ordem = "asc";
+//     }
 
-    $tam = count($dados); // 0
+//     $tam = count($dados); // 0
 
-    if ($tam == 0) {
-        echo "o array informado esta vazio.";
-        return;
-    }
+//     if ($tam == 0) {
+//         echo "o array informado esta vazio.";
+//         return;
+//     }
 
-    for($i = 0; $i < $tam - 1; $i++) {
+//     for($i = 0; $i < $tam - 1; $i++) {
 
-        for($j = 0; $j < $tam - 1; $j++) {
+//         for($j = 0; $j < $tam - 1; $j++) {
 
-            $proximoIndice = $j + 1;
-            $numeroAtual = $dados[$j];
-            $proxNumero = $dados[$proximoIndice];
+//             $proximoIndice = $j + 1;
+//             $numeroAtual = $dados[$j];
+//             $proxNumero = $dados[$proximoIndice];
 
-            if ($ordem == "desc") {
-                if ($numeroAtual < $proxNumero) {
-                    $aux = $numeroAtual;
-                    $numeroAtual = $proxNumero;
-                    $proxNumero = $aux;
+//             if ($ordem == "desc") {
+//                 if ($numeroAtual < $proxNumero) {
+//                     $aux = $numeroAtual;
+//                     $numeroAtual = $proxNumero;
+//                     $proxNumero = $aux;
 
-                    $dados[$j] = $numeroAtual;
-                    $dados[$proximoIndice] = $proxNumero;
-                }
-            } else {
-                if ($numeroAtual > $proxNumero) {
-                    $aux = $numeroAtual;
-                    $numeroAtual = $proxNumero;
-                    $proxNumero = $aux;
+//                     $dados[$j] = $numeroAtual;
+//                     $dados[$proximoIndice] = $proxNumero;
+//                 }
+//             } else {
+//                 if ($numeroAtual > $proxNumero) {
+//                     $aux = $numeroAtual;
+//                     $numeroAtual = $proxNumero;
+//                     $proxNumero = $aux;
 
-                    $dados[$j] = $numeroAtual;
-                    $dados[$proximoIndice] = $proxNumero;
-                }
-            }
+//                     $dados[$j] = $numeroAtual;
+//                     $dados[$proximoIndice] = $proxNumero;
+//                 }
+//             }
 
 
-        } // fim FOR $j
-    } // fim FOR $i
+//         } // fim FOR $j
+//     } // fim FOR $i
 
-    return $dados;
-} // fim funcao
+//     return $dados;
+// } // fim funcao
 
-function exibirDados(array $dados) {
-    $tam = count($dados);
+// function exibirDados(array $dados) {
+//     $tam = count($dados);
 
-    for ($i = 0; $i < $tam; $i++) {
-        echo "Array ordenado: $dados[$i]" . "<br>";
-    }
+//     for ($i = 0; $i < $tam; $i++) {
+//         echo "Array ordenado: $dados[$i]" . "<br>";
+//     }
 
-    echo "<br>";
-}
+//     echo "<br>";
+// }
 
-$alfa = ["A", "B", "C", "D", "E"];
+// $alfa = ["A", "B", "C", "D", "E"];
 
-// $numeros = [2,10, 20, 30, 60, 5,40, 50, 1, 500];
+// // $numeros = [2,10, 20, 30, 60, 5,40, 50, 1, 500];
 
-/**
- * Adicionar novo parametro na funcao de ordenarArray
- * sendo ele $ordem. ASC ou DESC
- * Se chamar a funcao com ASC => retornar os dados em crescente(asc)
- * menor => maior
- * Se chamar a funcao com DESC => retornar os dados em decrescente(desc)
- * maior => menor
- */
+// /**
+//  * Adicionar novo parametro na funcao de ordenarArray
+//  * sendo ele $ordem. ASC ou DESC
+//  * Se chamar a funcao com ASC => retornar os dados em crescente(asc)
+//  * menor => maior
+//  * Se chamar a funcao com DESC => retornar os dados em decrescente(desc)
+//  * maior => menor
+//  */
 
-$numerosOrdenados = ordenarArray($numeros);
-exibirDados($numerosOrdenados);
-$numerosOrdenados = ordenarArray($numeros, "desc");
-exibirDados($numerosOrdenados);
-$numerosOrdenados = ordenarArray($numeros);
-exibirDados($numerosOrdenados);
+// $numerosOrdenados = ordenarArray($numeros);
+// exibirDados($numerosOrdenados);
+// $numerosOrdenados = ordenarArray($numeros, "desc");
+// exibirDados($numerosOrdenados);
+// $numerosOrdenados = ordenarArray($numeros);
+// exibirDados($numerosOrdenados);
 
 
  /**
@@ -666,65 +668,65 @@ exibirDados($numerosOrdenados);
   * Utilizar somente laço FOR. Não utilizar funcoes prontas do PHP.
   */
 
-$soma = [];
-$numerosA = [10, 20, 30, 40, 50];
-$numerosB = [5, 45, 37, 2, 25];
+// $soma = [];
+// $numerosA = [10, 20, 30, 40, 50];
+// $numerosB = [5, 45, 37, 2, 25];
 
-for($i=0; $i < count($numerosA); $i++) {
+// for($i=0; $i < count($numerosA); $i++) {
 
-    $somaElementos =  $numerosA[$i] + $numerosB[$i];
+//     $somaElementos =  $numerosA[$i] + $numerosB[$i];
 
-    $soma[] = $somaElementos;
-}
+//     $soma[] = $somaElementos;
+// }
 
-// $soma[15, 65, 67, 42, 75]
-for($i=0; $i < count($soma); $i++) {
+// // $soma[15, 65, 67, 42, 75]
+// for($i=0; $i < count($soma); $i++) {
 
-    echo $soma[$i] . "<br>";
-}
+//     echo $soma[$i] . "<br>";
+// }
 
-echo "<br>";
+// echo "<br>";
   
 
-  /**
-  * Multiplicar os arrays/vetores abaixo:
-  * $numerosA = [10, 20, 30, 40, 50];
-  * $numerosB = [5, 45, 37, 2, 25];
-  *
-  * Saida esperada: $produto[50, 900, 1110, 80, 1250]
+//   /**
+//   * Multiplicar os arrays/vetores abaixo:
+//   * $numerosA = [10, 20, 30, 40, 50];
+//   * $numerosB = [5, 45, 37, 2, 25];
+//   *
+//   * Saida esperada: $produto[50, 900, 1110, 80, 1250]
 
-  * Utilizar somente laço FOR. Não utilizar funcoes prontas do PHP.
-  */
-$produto = []; // 0;
-$numerosA = [10, 20, 30, 40, 50];
-$numerosB = [5, 45, 37, 2, 25];
+//   * Utilizar somente laço FOR. Não utilizar funcoes prontas do PHP.
+//   */
+// $produto = []; // 0;
+// $numerosA = [10, 20, 30, 40, 50];
+// $numerosB = [5, 45, 37, 2, 25];
 
-for($i=0; $i < count($numerosA); $i++) {
+// for($i=0; $i < count($numerosA); $i++) {
 
-    $multiplicaElementos =  $numerosA[$i] * $numerosB[$i];
+//     $multiplicaElementos =  $numerosA[$i] * $numerosB[$i];
 
-    $produto[] = $multiplicaElementos;
-}
+//     $produto[] = $multiplicaElementos;         
+// }
 
-// $produto[50, 900, 1110, 80, 1250]
-for($i=0; $i < count($produto); $i++) {
+// // $produto[50, 900, 1110, 80, 1250]
+// for($i=0; $i < count($produto); $i++) {
 
-    echo $produto[$i] . "<br>";
-}
+//     echo $produto[$i] . "<br>";
+// }
 
-echo "<br>";
+// echo "<br>";
 
-/**
-  * Decompor um valor informado pelo usuario em reais
-  * informando quantas notas de cada representam esse valor. 
-  * $notas = [2, 5, 10, 20, 50, 100, 200];
-  * $valor = 170;
-  *
-  * Saida esperada: 1 nota de 100, 1 nota de 50 e 1 nota de 20. 
-  *
-  * $totalNotas["100"] += 1;
-  * Não utilizar funcoes prontas do PHP.
-  */
+// /**
+//   * Decompor um valor informado pelo usuario em reais
+//   * informando quantas notas de cada representam esse valor. 
+//   * $notas = [2, 5, 10, 20, 50, 100, 200];
+//   * $valor = 170;
+//   *
+//   * Saida esperada: 1 nota de 100, 1 nota de 50 e 1 nota de 20. 
+//   *
+//   * $totalNotas["100"] += 1;
+//   * Não utilizar funcoes prontas do PHP.
+//   */
 
   // => - associação de um array
 $totalNotas = [
@@ -740,7 +742,7 @@ $totalNotas = [
 $totalNotas["200"] += 1;
 $totalNotas["100"] += 1;
 */
-$valor = 1057;
+$valor = 170;
 $notas = [200, 100, 50, 20, 10, 5, 2];
 
 $tamanhoArray = count($notas); // 7
@@ -759,7 +761,8 @@ for($i = 0; $i < $tamanhoArray; $i++) {
     }
 }
 
-foreach ($totalNotas as $notas => $quantidade) {
+foreach ($totalNotas as $notas => $quantidade) { // (array - indice - conteúdo do indice) - foreach usar em array associativo
     // 1 nota de 100;
     echo "$quantidade nota(s) de $notas. <br>";
 }
+
