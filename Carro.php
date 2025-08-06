@@ -12,7 +12,7 @@ class Carro {
     public $kmRodado = 0;
 
     public $ligado = false; 
-    public $nivelTanque = false; 
+    public $nivelTanque = true; 
 
 // método - TIPO do CARRO
     public function identificarCarro($modelo, $marca, $ano) {
@@ -32,16 +32,17 @@ class Carro {
 
     // FUNCIONAMENTO do CARRO
     public function verificarGasolina() {
-        $this->nivelTanque = true; // com gasolina
-        $this->nivelTanque = false; // sem gasolina    
+        $this->nivelTanque = true; // com gasolina   
      }
-    public function ligarDesligar() {
+    public function ligar() {
         $this->ligado = true; // ligado
+     }
+     public function desligar() {
         $this->ligado= false; // desligado
      }
 
      public function rodar() {
-        $podeRodar = $this->nivelTanque = true && $this->ligado = true; 
+        $podeRodar = $this->nivelTanque && $this->ligado; 
         
         if($podeRodar) {
         echo "O carro pode rodar...";
@@ -49,7 +50,16 @@ class Carro {
             echo "Verigue se o está desligado e ou se tem combustível.";
         }
      }
+      public function exibir() {
+        if ($this->ligado) {
+            echo "O carro pode rodar...";
+        } else {
+                 echo "Verigue se o está desligado e ou se tem combustível.";
+        }
+    }
 }
      
 $objCarro = new Carro();
-$objCarro->ligarDesligar();
+$objCarro->ligar();
+$objCarro->desligar();
+$objCarro->verificarGasolina();

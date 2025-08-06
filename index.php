@@ -766,3 +766,4 @@ foreach ($totalNotas as $notas => $quantidade) { // (array - indice - conteúdo 
     echo "$quantidade nota(s) de $notas. <br>";
 }
 
+// php.net
