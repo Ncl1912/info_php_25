@@ -67,4 +67,16 @@ class Pessoa {
     public function editarEscolaridade ($escolaridade) {
         return $this->escolaridade = $escolaridade;
     }
+    public function obterTelefone () {
+        return $this->telefone;
+    }
+    public function editarTelefone ($telefone) {
+        return $this->telefone = $telefone;
+    }
+    public function obterEmail () {
+        return $this->email;
+    }
+    public function editarEmail ($email) {
+        return $this->email = $email;
+    }
 }
