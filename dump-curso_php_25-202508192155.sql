@@ -16,6 +16,41 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `endereco`
+--
+
+DROP TABLE IF EXISTS `endereco`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `endereco` (
+  `id` smallint(6) NOT NULL AUTO_INCREMENT,
+  `bairro` varchar(255) NOT NULL,
+  `logradouro` varchar(255) NOT NULL,
+  `complemento` varchar(100) DEFAULT NULL,
+  `numero` varchar(11) NOT NULL,
+  `cidade` varchar(100) NOT NULL,
+  `estado` varchar(100) NOT NULL,
+  `pais` varchar(100) NOT NULL,
+  `cep` varchar(11) NOT NULL,
+  `tipo_endereco` enum('residencial','comercial','industrial','hospitalar') NOT NULL DEFAULT 'residencial',
+  `id_pessoas` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `endereco_pessoas_FK` (`id_pessoas`),
+  CONSTRAINT `endereco_pessoas_FK` FOREIGN KEY (`id_pessoas`) REFERENCES `pessoas` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `endereco`
+--
+
+LOCK TABLES `endereco` WRITE;
+/*!40000 ALTER TABLE `endereco` DISABLE KEYS */;
+INSERT INTO `endereco` VALUES (1,'Borgo','Fiorelo Bertuol','apto 201','1030','Bento Gonçalves','RS','Brasil','95705-540','residencial',NULL);
+/*!40000 ALTER TABLE `endereco` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `pessoas`
 --
 
@@ -27,15 +62,18 @@ CREATE TABLE `pessoas` (
   `nome` varchar(255) NOT NULL,
   `data_nascimento` date NOT NULL,
   `nacionalidade` varchar(100) NOT NULL,
-  `estado_civil` varchar(100) NOT NULL,
+  `estado_civil` enum('solteiro','casado','divorciado','viuvo') NOT NULL DEFAULT 'solteiro',
   `sexo` enum('M','F') NOT NULL DEFAULT 'M',
   `nome_mae` varchar(255) NOT NULL,
   `nome_pai` varchar(255) NOT NULL,
-  `cpf` int(11) NOT NULL,
+  `cpf` varchar(11) DEFAULT NULL,
   `escolaridade` varchar(100) NOT NULL,
-  `telefone` int(11) NOT NULL,
+  `telefone` varchar(11) NOT NULL,
   `email` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
+  `id_usuario` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pessoas_usuarios_FK` (`id_usuario`),
+  CONSTRAINT `pessoas_usuarios_FK` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -45,7 +83,7 @@ CREATE TABLE `pessoas` (
 
 LOCK TABLES `pessoas` WRITE;
 /*!40000 ALTER TABLE `pessoas` DISABLE KEYS */;
-INSERT INTO `pessoas` VALUES (1,'Nicole de Oliveira Darui','2007-07-12','Brasileiro','Solteiro','F','','',0,'',0,'');
+INSERT INTO `pessoas` VALUES (1,'Nicole de Oliveira Darui','2006-12-19','Brasileiro','solteiro','F','Deise Silva de Oliveira','Vaine Venicius Darui','12345678901','2° grau completo','54999918438','nnicoledeoliveiradarui@gmail.com',NULL);
 /*!40000 ALTER TABLE `pessoas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -92,4 +130,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-08-12 21:52:02
+-- Dump completed on 2025-08-19 21:55:07
