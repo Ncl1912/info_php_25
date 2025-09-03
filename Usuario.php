@@ -1,5 +1,7 @@
 <?php
 
+require_once "./Model.php";
+
 class Usuario {
     public $id = 0;
     public $login = "";
@@ -10,6 +12,48 @@ class Usuario {
     public $tipoPerfil = "";
     public $permissoes = "";
     public $logado = false;
+    private $modelUsuario = null;
+
+    public function __construct($model)
+    {
+        $this->modelUsuario = $model;
+    }
+
+    public function listarUsuarios() {
+        $sql = "SELECT * FROM usuarios";
+
+        $usuarios = $this->modelUsuario->Read($sql);
+
+        foreach ($usuarios as $idx => $usuario) {
+            echo $usuario->login . "<br>" ;
+            echo $usuario->nome_usuario . "<br>" ;
+            echo $usuario->status . "<br>" ;
+            echo "<br>";
+        }
+
+    }
+
+    public function buscarUsuario($id) {
+        $sql = "SELECT * FROM usuarios WHERE id=$id";
+
+        $usuarios = $this->modelUsuario->ReadOne($sql);
+
+        foreach ($usuarios as $idx => $usuario) {
+            echo $usuario->login . "<br>" ;
+            echo $usuario->nome_usuario . "<br>" ;
+            echo $usuario->status . "<br>" ;
+            echo "<br>";
+        }
+
+    }
+
+    public function excluirUsuario($id) {
+        $sql = "DELETE FROM usuarios WHERE id=$id";
+
+        $usuarioExcluido = $this->modelUsuario->Delete($sql);
+
+        echo $usuarioExcluido ? "Usuário excluído." : "Não foi possível excluir o usuário.";
+    }
 
     public function logar($login, $senha) {
         $seed = "Ab4cax1#456B3nt0"; // phising
@@ -59,4 +103,10 @@ class Usuario {
         $this->id = $id;
         $this->permissoes = $permissoes;
     }
+
+    
 }
+$usuario = new Usuario($model);
+$usuario->listarUsuarios();
+$usuario->buscarUsuario(1);
+$usuario->excluirUsuario(10);
